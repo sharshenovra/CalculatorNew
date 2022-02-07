@@ -48,17 +48,14 @@ class MainViewModel {
             }
         } else if title == "C" {
             clearAll()
-        } else if !(operators.contains(String(math.last ?? Character(""))) && operators.contains(title)) && operation == false{
+        } else if !(operators.contains(String(math.last ?? Character(""))) && operators.contains(title)){
             if title == "+" || title == "-" || title == "/" || title == "*"{
-                operation = true
-                calculatemathResult(title)
-            }else{
-                operation = false
-                calculatemathResult(title)
-            }
-        }else if !(operators.contains(String(math.last ?? Character(""))) && operators.contains(title)) && operation == true {
-            if title == "+" || title == "-" || title == "/" || title == "*"{
-                return
+                if operation == false{
+                    operation = true
+                    calculatemathResult(title)
+                }else if operation == true{
+                    return
+                }
             }else{
                 operation = false
                 calculatemathResult(title)
