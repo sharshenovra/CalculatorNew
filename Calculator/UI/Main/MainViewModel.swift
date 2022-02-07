@@ -56,6 +56,13 @@ class MainViewModel {
                 operation = false
                 calculatemathResult(title)
             }
+        }else if !(operators.contains(String(math.last ?? Character(""))) && operators.contains(title)) && operation == true {
+            if title == "+" || title == "-" || title == "/" || title == "*"{
+                return
+            }else{
+                operation = false
+                calculatemathResult(title)
+            }
         }
     }
     
