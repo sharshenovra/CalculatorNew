@@ -41,20 +41,25 @@ class HistoryTableView: UIView{
 
 extension HistoryTableView: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
         calculations = realm.objects(Calculations.self)
         return calculations!.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         calculations = realm.objects(Calculations.self)
-        let calculation = calculations![indexPath.row]
+        let calculation = calculations![indexPath.section]
         let cell = historyTableView.dequeueReusableCell(withIdentifier: "CustomTableViewCell") as! CustomTableViewCell
         cell.title1.text = calculation.operation
         cell.title2.text = calculation.result
         return cell
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return UITableView.automaticDimension
     }
+    
 }

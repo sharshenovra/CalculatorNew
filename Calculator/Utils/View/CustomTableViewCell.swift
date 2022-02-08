@@ -11,6 +11,13 @@ import SnapKit
 
 class CustomTableViewCell: UITableViewCell {
 
+    private lazy var titlesView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .darkGray
+        view.layer.cornerRadius = self.frame.height / 4
+        return view
+    }()
+    
     lazy var title1: UILabel = {
         let view = UILabel()
         view.font = .systemFont(ofSize: 20, weight: .bold)
@@ -30,12 +37,21 @@ class CustomTableViewCell: UITableViewCell {
     }()
     
     override func layoutSubviews() {
-        addSubview(title1)
+        super.layoutSubviews()
+
+        contentView.clipsToBounds = true
+        
+        addSubview(titlesView)
+        titlesView.snp.makeConstraints { make in
+            make.edges.equalToSuperview().inset(5)
+        }
+        
+        titlesView.addSubview(title1)
         title1.snp.makeConstraints { make in
             make.top.width.equalToSuperview()
             make.height.equalToSuperview().dividedBy(2)
         }
-        addSubview(title2)
+        titlesView.addSubview(title2)
         title2.snp.makeConstraints { make in
             make.width.equalToSuperview()
             make.top.equalTo(title1.snp.bottom)
