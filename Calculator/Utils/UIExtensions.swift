@@ -9,6 +9,8 @@ import Foundation
 import UIKit
 import SnapKit
 
+// Добавляем расширение для класса UIView чтобы пользоваться перменной safeArea
+
 extension UIView {
     
     var safeArea: ConstraintBasicAttributesDSL {
