@@ -12,14 +12,7 @@ class MainController: UIViewController {
 
     private lazy var resultLabel = UIResultLabel()
     private lazy var buttonsLayout = UIButtonsLayoutView()
-    private lazy var historyButton: CustomButton = {
-        let view = CustomButton(type: .system)
-        view.setTitle("History", for: .normal)
-        view.setTitleColor(.red, for: .normal)
-        return view
-    }()
-    
-    let rootVC = HistoryViewController()
+    private lazy var historyButton = CustomButton(title: "History")
     
     private lazy var viewmodel: MainViewModel = {
         return MainViewModel(delegate: self)
@@ -30,10 +23,7 @@ class MainController: UIViewController {
 
         setupMainWindow()
         setupViews()
-     
-        historyButton.setOnClickListener { view in
-            self.navigationController?.pushViewController(self.rootVC, animated: true)
-        }
+
     }
     
     private func setupMainWindow() {
@@ -45,8 +35,8 @@ class MainController: UIViewController {
         
         view.addSubview(historyButton)
         historyButton.snp.makeConstraints { make in
-            make.top.equalTo(view.safeArea.top)
-            make.right.equalToSuperview()
+            make.top.equalTo(view.safeArea.top).offset(8)
+            make.right.equalToSuperview().offset(-8)
         }
         
         view.addSubview(buttonsLayout)
@@ -63,6 +53,16 @@ class MainController: UIViewController {
             make.left.right.equalToSuperview()
             make.bottom.equalTo(buttonsLayout.snp.top).offset(-16)
         }
+        
+        historyButton.setOnClickListener { view in
+            self.navigationController?.pushViewController(HistoryController.newInstanse(delegate: self), animated: true)
+        }
+    }
+}
+
+extension MainController: HistorySelectDelegate {
+    func selectHistory(model: HistoryModel) {
+        viewmodel.selectHistory(model: model)
     }
 }
 

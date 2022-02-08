@@ -9,57 +9,63 @@ import Foundation
 import UIKit
 import SnapKit
 import RealmSwift
+import SwiftUI
+
+protocol HistoryCellDelegate: AnyObject {
+    func onClick(model: HistoryModel)
+}
 
 class HistoryTableView: UIView{
 
-    lazy var historyTableView: UITableView = {
+    private lazy var historyTableView: UITableView = {
         let view = UITableView()
         view.delegate = self
         view.dataSource = self
+        view.backgroundColor = .black
+        view.register(HistoryCell.self, forCellReuseIdentifier: "HistoryCell")
         return view
     }()
     
-    
-    let dataBase = DataBase()
-    
-    let realm = try! Realm()
-    
-    var calculations = DataBase.shared.calculations
-    
+    weak var delegate: HistoryCellDelegate? = nil
+
     override func layoutSubviews() {
         addSubview(historyTableView)
         historyTableView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
-        
-        historyTableView.register(CustomTableViewCell.self, forCellReuseIdentifier: "CustomTableViewCell")
     }
     
+    private var models: Results<HistoryModel>? = nil
+    
+    func fill(models: Results<HistoryModel>) {
+        self.models = models
+        
+        historyTableView.reloadData()
+    }
 }
 
-
-
-extension HistoryTableView: UITableViewDelegate, UITableViewDataSource{
+extension HistoryTableView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return models?.count ?? 0
     }
     
-    func numberOfSections(in tableView: UITableView) -> Int {
-        calculations = realm.objects(Calculations.self)
-        return calculations!.count
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let model = models?[indexPath.row] {
+            delegate?.onClick(model: model)
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        calculations = realm.objects(Calculations.self)
-        let calculation = calculations![indexPath.section]
-        let cell = historyTableView.dequeueReusableCell(withIdentifier: "CustomTableViewCell") as! CustomTableViewCell
-        cell.title1.text = calculation.operation
-        cell.title2.text = calculation.result
+        let cell = historyTableView.dequeueReusableCell(withIdentifier: "HistoryCell") as! HistoryCell
+        
+        if let model = models?[indexPath.row] {
+            cell.fill(model: model)
+        }
+    
         return cell
     }
     
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return UITableView.automaticDimension
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
     }
-    
 }

@@ -12,13 +12,35 @@ class DataBase {
     
     public static let shared = DataBase()
     
-    let realm = try! Realm()
+    private lazy var realm: Realm? = {
+        do {
+            return try Realm()
+        } catch {
+            return nil
+        }
+    }()
     
-    var calculations: Results<Calculations>!
-
-}
-
-class Calculations: Object{
-    @objc dynamic var operation = ""
-    @objc dynamic var result = ""
+    func saveHistory(model: HistoryModel) {
+        do {
+            try realm?.write{
+                realm?.add(model)
+            }
+        } catch {
+            print("DataBase not work saveHistory")
+        }
+    }
+    
+    func getHistory() -> Results<HistoryModel>? {
+        return realm?.objects(HistoryModel.self)
+    }
+    
+    func deleteAllHistory() {
+        do {
+            try realm?.write{
+                realm?.deleteAll()
+            }
+        } catch {
+            print("DataBase not work saveHistory")
+        }
+    }
 }

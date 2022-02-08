@@ -26,10 +26,10 @@ class UIButtonsLayoutView: UIView {
     public weak var delegate: UIButtonsLayoutDelegate? = nil
     
     private let buttons = [
-        [buttonModel("AC", .black, .gray), buttonModel("%", .black, .gray), buttonModel("C", .black, .gray), buttonModel("/", .white, .orange)],
-        [buttonModel("7", .white, .darkGray), buttonModel("8", .white, .darkGray), buttonModel("9", .white, .darkGray), buttonModel("*", .white, .orange)],
-        [buttonModel("4", .white, .darkGray), buttonModel("5", .white, .darkGray), buttonModel("6", .white, .darkGray), buttonModel("-", .white, .orange)],
-        [buttonModel("1", .white, .darkGray), buttonModel("2", .white, .darkGray), buttonModel("3", .white, .darkGray), buttonModel("+", .white, .orange)],
+        [ButtonModel("AC", .black, .gray), ButtonModel("%", .black, .gray), ButtonModel("C", .black, .gray), ButtonModel("/", .white, .orange)],
+        [ButtonModel("7", .white, .darkGray), ButtonModel("8", .white, .darkGray), ButtonModel("9", .white, .darkGray), ButtonModel("*", .white, .orange)],
+        [ButtonModel("4", .white, .darkGray), ButtonModel("5", .white, .darkGray), ButtonModel("6", .white, .darkGray), ButtonModel("-", .white, .orange)],
+        [ButtonModel("1", .white, .darkGray), ButtonModel("2", .white, .darkGray), ButtonModel("3", .white, .darkGray), ButtonModel("+", .white, .orange)],
     ]
     
     private func secontStart(_ cornerRadius: Double) {
@@ -48,11 +48,11 @@ class UIButtonsLayoutView: UIView {
         
         let sumStack = crateStack()
         
-        left.addArrangedSubview(createButton(model: buttonModel("0", .white, .darkGray), cornerRadius))
+        left.addArrangedSubview(createButton(model: ButtonModel("0", .white, .darkGray), cornerRadius))
         sumStack.addArrangedSubview(left)
 
-        rithe.addArrangedSubview(createButton(model: buttonModel(".", .white, .darkGray), cornerRadius))
-        rithe.addArrangedSubview(createButton(model: buttonModel("=", .white, .orange), cornerRadius))
+        rithe.addArrangedSubview(createButton(model: ButtonModel(".", .white, .darkGray), cornerRadius))
+        rithe.addArrangedSubview(createButton(model: ButtonModel("=", .white, .orange), cornerRadius))
         
         sumStack.addArrangedSubview(rithe)
         
@@ -71,7 +71,7 @@ class UIButtonsLayoutView: UIView {
         secontStart(cornerRadius)
     }
     
-    private func createButton(model: buttonModel, _ cornerRadius: Double) -> UIButton {
+    private func createButton(model: ButtonModel, _ cornerRadius: Double) -> UIButton {
         let view = UIButton(type: .system)
         view.addTarget(self, action: #selector(clickButtons(view:)), for: .touchUpInside)
         view.titleLabel?.font = UIFont.systemFont(ofSize: 30, weight: .bold)

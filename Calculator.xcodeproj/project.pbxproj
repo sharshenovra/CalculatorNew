@@ -22,12 +22,13 @@
 		60036AC927AFB96E00EED17F /* UIResultLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60036AC827AFB96E00EED17F /* UIResultLabel.swift */; };
 		60036ACC27AFBB1300EED17F /* UIExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60036ACB27AFBB1300EED17F /* UIExtensions.swift */; };
 		60036ACF27AFBCB000EED17F /* UIButtonsLayoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60036ACE27AFBCB000EED17F /* UIButtonsLayoutView.swift */; };
-		60036AD327AFBFC300EED17F /* buttonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60036AD227AFBFC300EED17F /* buttonModel.swift */; };
-		60326C3B27B00CAD0090B881 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60326C3A27B00CAD0090B881 /* StringExtension.swift */; };
+		60036AD327AFBFC300EED17F /* ButtonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60036AD227AFBFC300EED17F /* ButtonModel.swift */; };
+		600ABBEF27B2AA7A00628E47 /* HistoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600ABBEE27B2AA7A00628E47 /* HistoryModel.swift */; };
+		600ABBF127B2AAF100628E47 /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600ABBF027B2AAF100628E47 /* HistoryViewModel.swift */; };
 		60FF941127B117EC008BA5A7 /* DataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60FF941027B117EC008BA5A7 /* DataBase.swift */; };
 		60FF941327B117FB008BA5A7 /* HistoryTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60FF941227B117FB008BA5A7 /* HistoryTableView.swift */; };
-		60FF941527B11900008BA5A7 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60FF941427B11900008BA5A7 /* HistoryViewController.swift */; };
-		60FF941727B119F8008BA5A7 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60FF941627B119F8008BA5A7 /* CustomTableViewCell.swift */; };
+		60FF941527B11900008BA5A7 /* HistoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60FF941427B11900008BA5A7 /* HistoryController.swift */; };
+		60FF941727B119F8008BA5A7 /* HistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60FF941627B119F8008BA5A7 /* HistoryCell.swift */; };
 		60FF941A27B129D5008BA5A7 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60FF941927B129D5008BA5A7 /* CustomButton.swift */; };
 		EE93D862B84056EB90E29EC0 /* Pods_CalculatorTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D15AF7BDE3F8112A10A6880 /* Pods_CalculatorTests.framework */; };
 /* End PBXBuildFile section */
@@ -69,12 +70,13 @@
 		60036AC827AFB96E00EED17F /* UIResultLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIResultLabel.swift; sourceTree = "<group>"; };
 		60036ACB27AFBB1300EED17F /* UIExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIExtensions.swift; sourceTree = "<group>"; };
 		60036ACE27AFBCB000EED17F /* UIButtonsLayoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonsLayoutView.swift; sourceTree = "<group>"; };
-		60036AD227AFBFC300EED17F /* buttonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = buttonModel.swift; sourceTree = "<group>"; };
-		60326C3A27B00CAD0090B881 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		60036AD227AFBFC300EED17F /* ButtonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonModel.swift; sourceTree = "<group>"; };
+		600ABBEE27B2AA7A00628E47 /* HistoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryModel.swift; sourceTree = "<group>"; };
+		600ABBF027B2AAF100628E47 /* HistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewModel.swift; sourceTree = "<group>"; };
 		60FF941027B117EC008BA5A7 /* DataBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBase.swift; sourceTree = "<group>"; };
 		60FF941227B117FB008BA5A7 /* HistoryTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableView.swift; sourceTree = "<group>"; };
-		60FF941427B11900008BA5A7 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
-		60FF941627B119F8008BA5A7 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		60FF941427B11900008BA5A7 /* HistoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryController.swift; sourceTree = "<group>"; };
+		60FF941627B119F8008BA5A7 /* HistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCell.swift; sourceTree = "<group>"; };
 		60FF941927B129D5008BA5A7 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		649BBD1E88EA0544FA9F5A1A /* Pods-Calculator-CalculatorUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Calculator-CalculatorUITests.debug.xcconfig"; path = "Target Support Files/Pods-Calculator-CalculatorUITests/Pods-Calculator-CalculatorUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		81601813D1E869BE885365E8 /* Pods-Calculator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Calculator.release.xcconfig"; path = "Target Support Files/Pods-Calculator/Pods-Calculator.release.xcconfig"; sourceTree = "<group>"; };
@@ -180,6 +182,7 @@
 		60036AC027AFB85400EED17F /* DataBase */ = {
 			isa = PBXGroup;
 			children = (
+				600ABBED27B2AA4D00628E47 /* Model */,
 				60FF941027B117EC008BA5A7 /* DataBase.swift */,
 			);
 			path = DataBase;
@@ -200,7 +203,6 @@
 				60036AD027AFBFAD00EED17F /* Models */,
 				60036AC527AFB93600EED17F /* View */,
 				60036ACB27AFBB1300EED17F /* UIExtensions.swift */,
-				60326C3A27B00CAD0090B881 /* StringExtension.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -211,7 +213,7 @@
 				60036AC827AFB96E00EED17F /* UIResultLabel.swift */,
 				60036ACE27AFBCB000EED17F /* UIButtonsLayoutView.swift */,
 				60FF941227B117FB008BA5A7 /* HistoryTableView.swift */,
-				60FF941627B119F8008BA5A7 /* CustomTableViewCell.swift */,
+				60FF941627B119F8008BA5A7 /* HistoryCell.swift */,
 				60FF941927B129D5008BA5A7 /* CustomButton.swift */,
 			);
 			path = View;
@@ -220,15 +222,24 @@
 		60036AD027AFBFAD00EED17F /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				60036AD227AFBFC300EED17F /* buttonModel.swift */,
+				60036AD227AFBFC300EED17F /* ButtonModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		600ABBED27B2AA4D00628E47 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				600ABBEE27B2AA7A00628E47 /* HistoryModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		60FF941827B11BBA008BA5A7 /* History */ = {
 			isa = PBXGroup;
 			children = (
-				60FF941427B11900008BA5A7 /* HistoryViewController.swift */,
+				60FF941427B11900008BA5A7 /* HistoryController.swift */,
+				600ABBF027B2AAF100628E47 /* HistoryViewModel.swift */,
 			);
 			path = History;
 			sourceTree = "<group>";
@@ -497,18 +508,19 @@
 			files = (
 				60FF941127B117EC008BA5A7 /* DataBase.swift in Sources */,
 				60036A9427AFB70A00EED17F /* MainController.swift in Sources */,
-				60036AD327AFBFC300EED17F /* buttonModel.swift in Sources */,
-				60FF941527B11900008BA5A7 /* HistoryViewController.swift in Sources */,
+				60036AD327AFBFC300EED17F /* ButtonModel.swift in Sources */,
+				60FF941527B11900008BA5A7 /* HistoryController.swift in Sources */,
 				60FF941A27B129D5008BA5A7 /* CustomButton.swift in Sources */,
 				60036A9027AFB70A00EED17F /* AppDelegate.swift in Sources */,
 				60036A9227AFB70A00EED17F /* SceneDelegate.swift in Sources */,
 				60036ACC27AFBB1300EED17F /* UIExtensions.swift in Sources */,
-				60326C3B27B00CAD0090B881 /* StringExtension.swift in Sources */,
 				60036AC927AFB96E00EED17F /* UIResultLabel.swift in Sources */,
 				60FF941327B117FB008BA5A7 /* HistoryTableView.swift in Sources */,
+				600ABBEF27B2AA7A00628E47 /* HistoryModel.swift in Sources */,
 				60036AC327AFB87600EED17F /* MainViewModel.swift in Sources */,
 				60036ACF27AFBCB000EED17F /* UIButtonsLayoutView.swift in Sources */,
-				60FF941727B119F8008BA5A7 /* CustomTableViewCell.swift in Sources */,
+				60FF941727B119F8008BA5A7 /* HistoryCell.swift in Sources */,
+				600ABBF127B2AAF100628E47 /* HistoryViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

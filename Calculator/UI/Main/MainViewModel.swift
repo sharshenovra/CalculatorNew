@@ -24,9 +24,15 @@ class MainViewModel {
     
     private var math = "0"
     private var operators = ["+", "-", "*", "/", "."]
-    private var realm = try! Realm()
-    private var operations: Results<Calculations>!
     private var operation = false
+    
+    func selectHistory(model: HistoryModel) {
+        math = model.math
+        operation = false
+        
+        delegate?.showMath(math: model.math)
+        delegate?.showResult(result: model.result)
+    }
     
     func clickButton(_ title: String) {
         let separatedArray = math.components(separatedBy: ["-", "*", "/", "+"])
@@ -74,27 +80,6 @@ class MainViewModel {
     }
     
     private func clearAll() {
-        
-        operations = realm.objects(Calculations.self)
-        
-        let operation = Calculations()
-        if math != "0"{
-            operation.operation = math
-            let expr = NSExpression(format: math)
-            let result = expr.expressionValue(with: nil, context: nil) as! Double
-            let stringResult = String(result)
-            let separatedArray = stringResult.components(separatedBy: ".")
-            
-            if separatedArray[1] == "0"{
-                operation.result = separatedArray[0]
-            }else{
-                operation.result = stringResult
-            }
-            try! self.realm.write({
-                self.realm.add(operation)
-            })
-        }
-        
         math = "0"
         
         delegate?.showResult(result: "0")
@@ -117,6 +102,8 @@ class MainViewModel {
             let result = expr.expressionValue(with: nil, context: nil) as! Double
             let stringResult = String(result)
             let separatedArray = stringResult.components(separatedBy: ".")
+            
+            DataBase.shared.saveHistory(model: HistoryModel.createHistory(math: math, result: stringResult))
             
             if separatedArray[1] == "0"{
                 delegate?.showResult(result: "\(separatedArray[0])")
