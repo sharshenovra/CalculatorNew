@@ -13,14 +13,14 @@ class MainController: UIViewController {
 
     private lazy var resultLabel = UIResultLabel() // Создаём resultLabel из ранее созданной UIResultLabel
     private lazy var buttonsLayout = UIButtonsLayoutView() // Создаём buttonsLayout из ранее созданной UIButtonsLayoutView
-    private lazy var historyButton = CustomButton(title: "History")  // Создаём historyButton(енопку) из ранее созданной CustomButton с title "History"
+    private lazy var historyButton = CustomButton(title: "History")  // Создаём historyButton(кнопку) из ранее созданной CustomButton с title "History"
     
     private lazy var viewmodel: MainViewModel = { // Создаём переменную которая будет содержать в себе нашу модель
         return MainViewModel(delegate: self) // Возвращаем нашу модель с использованием её делегата
     }()
     
     override func viewDidLoad() { // Метод который используется при создании экрана
-        super.viewDidLoad() // Bспользуем метод Swift
+        super.viewDidLoad() // Используем метод Swift
 
         setupMainWindow() // Осуществляем реализацию функции описанной ниже
         setupViews() // Осуществляем реализацию функции описанной ниже
